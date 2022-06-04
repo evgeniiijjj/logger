@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
@@ -19,6 +18,6 @@ public class Logger {
 
     public void log(String message) {
         System.out.printf("\r[%s %s %d] %s\n", LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
-                , LocalTime.now().format(DateTimeFormatter.ofPattern("hh.mm.ss")), ++count, message);
+                , LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")), ++count, message);
     }
 }

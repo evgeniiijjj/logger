@@ -5,7 +5,6 @@ public class Main {
     static final Logger logger = Logger.getInstance();
     static final Scanner scanner = new Scanner(System.in);
     static final List<Integer> list = new ArrayList<>();
-    static final List<Integer> result = new ArrayList<>();
     static final Random rnd = new Random();
 
     public static void main(String[] args) {
@@ -36,14 +35,7 @@ public class Main {
                         System.out.print("Введите порог для фильтра: ");
                         f = Integer.parseInt(scanner.nextLine());
                         logger.log("Запускам фильтрацию");
-                        for (int i : list) {
-                            if (i > f) {
-                                result.add(i);
-                                logger.log(String.format("Элемент %d %s", i, "проходит"));
-                            } else {
-                                logger.log(String.format("Элемент %d %s", i, "не проходит"));
-                            }
-                        }
+                        List<Integer> result = new Filter(f).filterOut(list);
                         logger.log(String.format("Прошло фильтр %d элементов из %d", result.size(), n));
                         logger.log("Выводим результат на экран");
                         System.out.println("Отфильтрованный список: " + result);
